@@ -1,0 +1,25 @@
+=form_for @person, html: {class: 'form-horizontal'} do |f|
+
+  -if @person.errors.any?
+    -@person.errors.full_messages.each do |message|
+      .alert.alert-error=message
+
+  .form-group
+    =f.label :first_name, class: 'control-label col-sm-2'
+    .col-sm-4
+      =f.text_field :first_name, class: 'form-control'
+
+  .form-group
+    =f.label :last_name, class: 'control-label col-sm-2'
+    .col-sm-4
+      =f.text_field :last_name, class: 'form-control'
+
+  .form-group
+    =f.label :date_of_birth, class: 'control-label col-sm-2'
+    .col-sm-4
+      =f.date_field :date_of_birth, class: 'form-control'
+
+  .form-group
+    .col-sm-4.col-sm-offset-2
+      =f.submit class: 'btn btn-primary'
+      =link_to 'cancel', people_path, class: 'btn btn-default'

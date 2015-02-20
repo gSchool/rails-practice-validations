@@ -1,0 +1,15 @@
+.page-header
+  .pull-right
+    =link_to "New Organization", new_organization_path, class: 'btn btn-info'
+  %h1 Organizations
+
+%table.table.table-striped.tabled-bordered.table-hover
+  %thead
+    %tr
+      %th Name
+      %th
+  %tbody
+    -@organizations.each do |organization|
+      %tr
+        %td=organization.name
+        %td=link_to 'edit', edit_organization_path(organization)

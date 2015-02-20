@@ -1,0 +1,15 @@
+=form_for @organization, html: {class: 'form-horizontal'} do |f|
+
+  -if @organization.errors.any?
+    -@organization.errors.full_messages.each do |message|
+      .alert.alert-error=message
+
+  .form-group
+    =f.label :name, class: 'control-label col-sm-2'
+    .col-sm-4
+      =f.text_field :name, class: 'form-control'
+
+  .form-group
+    .col-sm-4.col-sm-offset-2
+      =f.submit class: 'btn btn-primary'
+      =link_to 'cancel', organizations_path, class: 'btn btn-default'

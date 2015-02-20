@@ -10,9 +10,13 @@ class PeopleController < ApplicationController
 
   def create
     @person = Person.new(person_params)
-    @person.save
-    redirect_to people_path, notice: "Person saved successfully"
+    if @person.save
+      flash[:notice] = "Check yourself! You just created something!"
+    redirect_to peoples_path
+  else
+    render :new
   end
+end
 
   def edit
     @person = Person.find(params[:id])

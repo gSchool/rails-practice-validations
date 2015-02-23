@@ -1,0 +1,21 @@
+<% if @organization.errors.any? %>
+  <h2>Errors:</h2>
+    <% @organization.errors.full_messages.each do |message| %>
+      <li> <%= message %> </li>
+    <% end %>
+<% end %>
+
+<%= form_for @organization, html: {class: "form-horizontal"} do |f| %>
+  <div class="form-group">
+    <%= f.label :name, class: "control-label col-sm-2" %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-4 col-sm-offset-2">
+      <%= f.submit name_of_button, class: "btn btn-primary" %>
+      <%= link_to "cancel", organizations_path, class: "btn btn-default" %>
+    </div>
+  </div>
+<% end %>
